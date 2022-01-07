@@ -1,6 +1,5 @@
 package hello.core;
 
-import hello.core.discount.DiscountPolicy;
 import hello.core.discount.FixDiscountPolicy;
 import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.MemberService;
@@ -25,12 +24,12 @@ public class AppConfig {
     }
 
     @Bean
-    public MemoryMemberRepository memberRepository() {
-        return new MemoryMemberRepository();
+    public FixDiscountPolicy discountPolicy() {
+        return new FixDiscountPolicy();
     }
 
     @Bean
-    public DiscountPolicy discountPolicy() {
-        return new RateDiscountPolicy();
+    public MemoryMemberRepository memberRepository() {
+        return new MemoryMemberRepository();
     }
 }
